@@ -1,0 +1,17 @@
+common: &default_settings
+  adapter: postgresql
+  database: <%= ENV["POSTGRES_DATABASE_NAME"] || "event-store" %>
+  host: <%= ENV["POSTGRES_DATABASE_HOST"] || "localhost" %>
+  user: <%= ENV["POSTGRES_DATABASE_USER"] || "postgres" %>
+  port: <%= ENV["POSTGRES_DATABASE_PORT"] || 5432 %>
+  password: <%= ENV["POSTGRES_DATABASE_PASSWORD"] || "" %>
+  pool: 10
+
+development:
+  <<: *default_settings
+
+test:
+  <<: *default_settings
+
+production:
+  <<: *default_settings
