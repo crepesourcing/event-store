@@ -54,7 +54,7 @@ COPY db/migrate/* /usr/src/app/db/migrate/
 ## Build a new version
 
 ```
-$ docker login -u babilideployer -p ${DOCKERHUB_PASSWORD} -e ${DOCKERHUB_EMAIL}
+$ docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD} -e ${DOCKERHUB_EMAIL}
 $ docker build --build-arg APP_ENV=production -t crepesourcing/event-store:latest .
 $ docker push crepesourcing/event-store:latest
 ```
