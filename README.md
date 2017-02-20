@@ -2,6 +2,7 @@
 
 This image listens for events in a RabbitMQ queue and save them into a PostgreSQL database.
 
+
 ## Events
 
 A single projector is defined following [Happn-ruby](https://github.com/crepesourcing/happn-ruby): `SaveAllEventsProjector`.
