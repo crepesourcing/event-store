@@ -1,4 +1,4 @@
-require "flu-rails/util"
+require "flu-rails"
 
 module Flu
   class Event
