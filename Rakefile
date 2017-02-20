@@ -38,6 +38,12 @@ namespace :events do
     require_relative "app/services/replay_service"
     ReplayService.build_to_replay_to_every_queue(args[:first_event_id]).replay
   end
+
+  task :replay_single, [:first_event_id, :target_queue_name]  do | t, args |
+    require_relative "config/initializers/replay"
+    require_relative "app/services/replay_service"
+    ReplayService.build_to_replay_to_single_queue(args[:first_event_id], args[:target_queue_name]).replay
+  end
 end
 
 db_namespace = namespace :db do

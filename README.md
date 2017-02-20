@@ -37,11 +37,34 @@ Starting this container will start listening for events.
 $ docker run crepesourcing/event-store:latest
 ```
 
-## How to replay
+## How to replay all events
+
+* All events:
 
 ```
 $ docker run --rm crepesourcing/event-store:latest bash -c 'rake events:replay'
 ```
+* All events starting from ID=1000
+
+```
+$ docker run --rm crepesourcing/event-store:latest bash -c 'rake events:replay[1000]'
+```
+
+## How to replay events to a single queue
+
+* Looking for a single queue's bindings, delete all other queues and replay relevant events only.
+
+```
+$ docker run --rm crepesourcing/event-store:latest bash -c 'rake events:replay_single[1,"my-target-queue"]'
+```
+
+
+## How to reorder events
+
+```
+$ docker run --rm crepesourcing/event-store:latest bash -c 'rake events:reorder'
+```
+
 
 ## How to add my own migrations
 
