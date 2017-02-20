@@ -1,6 +1,6 @@
 class QueueService
 
-  QUEUE_TRESHOLD      = ENV["REPLAY_TRESHOLD"] || 200000
+  QUEUE_TRESHOLD      = ENV["REPLAY_TRESHOLD"]&.to_i || 200000
   CONSTRAINT_WILDCARD = "*"
 
   def initialize(logger, queue_name_for_threshold)
