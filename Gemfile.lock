@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/crepesourcing/flu-rails.git
-  revision: 577908c3c04023f1150f547bafced0d88c54f0b4
+  revision: 321d8befb856e5de9ac04b894a9b6be58c87108e
   specs:
     flu-rails (0.1.2)
       activesupport (>= 4.2.0)
