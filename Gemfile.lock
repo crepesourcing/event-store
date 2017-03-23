@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/crepesourcing/flu-rails.git
-  revision: 321d8befb856e5de9ac04b894a9b6be58c87108e
+  revision: 062c38f82829e194bb61921a428609a28463bf10
   specs:
-    flu-rails (0.1.2)
+    flu-rails (0.1.3)
       activesupport (>= 4.2.0)
       bunny (>= 2.5.0)
       rabbitmq_http_api_client (>= 1.6.0)
