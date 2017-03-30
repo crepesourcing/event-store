@@ -79,6 +79,6 @@ COPY db/migrate/* /usr/src/app/db/migrate/
 
 ```
 $ docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD} -e ${DOCKERHUB_EMAIL}
-$ docker build --build-arg APP_ENV=production -t crepesourcing/event-store:latest .
+$ docker build -t crepesourcing/event-store:latest .
 $ docker push crepesourcing/event-store:latest
 ```
