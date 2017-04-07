@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/crepesourcing/happn-ruby.git
-  revision: 327a43c9cc7805fcb3aba15bca061ac37f0a7290
+  revision: 4cf87b39694d00735e9433a55efcbb99c2281902
   specs:
     happn (0.1.1)
       activesupport (>= 4.2.0)
