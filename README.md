@@ -75,6 +75,10 @@ FROM crepesourcing/event-store:latest
 COPY db/migrate/* /usr/src/app/db/migrate/
 ```
 
+## How to add my own event projectors
+
+To add and register your own implementations `Happn::Projector`, add all their ruby files to the folder `app/projectors/` and add their class name to environment variable `CUSTOM_PROJECTORS` (separated by a comma).
+
 ## Build a new version
 
 ```
@@ -82,3 +86,5 @@ $ docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD} -e ${DOCKERHUB_EMAI
 $ docker build -t crepesourcing/event-store:latest .
 $ docker push crepesourcing/event-store:latest
 ```
+
+(but this project is automatically built on DockerHub anyway: https://hub.docker.com/r/crepesourcing/event-store)

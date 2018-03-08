@@ -17,4 +17,5 @@ end
 ActiveRecord::Base.logger = logger
 
 Dir["#{__dir__}/../app/models/*.rb"].each {|file| require file }
+Dir["#{__dir__}/../app/projectors/*.rb"].each {|file| require file }
 

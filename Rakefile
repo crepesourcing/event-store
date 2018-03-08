@@ -8,13 +8,13 @@ require_relative "lib/rails"
 require_relative "config/initializers/raven"
 require_relative "app/models/event"
 require_relative "config/application"
-require_relative "app/projectors/save_all_events_projector.rb"
 require_relative "config/initializers/happn"
 require_relative "config/initializers/active_record_logger"
-require_relative "app/projectors/save_all_events_projector"
+
+Dir["#{__dir__}/app/models/*.rb"].each {|file| require file }
+Dir["#{__dir__}/app/projectors/**/*.rb"].each {|file| require file }
 
 ActiveRecord::Tasks::DatabaseTasks.db_dir = "db"
-
 
 task default: %w[events:consume]
 
