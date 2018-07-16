@@ -75,6 +75,14 @@ FROM crepesourcing/event-store:latest
 COPY db/migrate/* /usr/src/app/db/migrate/
 ```
 
+## How to prevent some events to be saved
+
+By default, all events are saved into the event-store.  However, you can provide a Ruby class named `EventIgnoreStrategy` that implements `should_ignore?(happn_event)` and replace it in your Docker container:
+```
+FROM crepesourcing/event-store:latest
+COPY your-strategy.rb /usr/src/app/app/services/event_ignore_strategy.rb
+```
+
 ## How to add my own event projectors
 
 To add and register your own implementations `Happn::Projector`, add all their ruby files to the folder `app/projectors/` and add their class name to environment variable `CUSTOM_PROJECTORS` (separated by a comma).

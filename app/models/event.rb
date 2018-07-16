@@ -25,4 +25,7 @@ class Event < ActiveRecord::Base
     event.data      = original_event.data
     event
   end
+
+
+
 end
