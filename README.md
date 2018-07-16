@@ -78,10 +78,21 @@ COPY db/migrate/* /usr/src/app/db/migrate/
 ## How to prevent some events to be saved
 
 By default, all events are saved into the event-store.  However, you can provide a Ruby class named `EventIgnoreStrategy` that implements `should_ignore?(happn_event)` and replace it in your Docker container:
+
 ```
 FROM crepesourcing/event-store:latest
 COPY your-strategy.rb /usr/src/app/app/services/event_ignore_strategy.rb
 ```
+
+## How to prevent clean your database
+
+A rake task `events:clean` is defined to call `EventCleaningStrategy.clean`. By default, it does not clean anything. However, you can replace it with your own implementation by replacing `event_cleaning_strategy.rb` during the Docker build:
+
+```
+FROM crepesourcing/event-store:latest
+COPY your-cleaninng-strategy.rb /usr/src/app/app/services/event_cleaning_strategy.rb
+```
+
 
 ## How to add my own event projectors
 

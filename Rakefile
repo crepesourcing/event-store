@@ -44,6 +44,11 @@ namespace :events do
     require_relative "app/services/replay_service"
     ReplayService.build_to_replay_to_single_queue(args[:first_event_id], args[:target_queue_name]).replay
   end
+
+  task clean: :environment do
+    require_relative "app/services/event_cleaning_strategy"
+    EventCleaningStrategy.clean
+  end
 end
 
 db_namespace = namespace :db do
