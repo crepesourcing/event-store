@@ -1,15 +1,15 @@
 GIT
   remote: https://github.com/crepesourcing/flu-rails.git
-  revision: 428f05d7cfb43bd2b53a69880227f941bb4a5855
+  revision: 28dc58e74a4c09d19d99c51cd413c4567a41fdc0
   specs:
-    flu-rails (0.2.0)
+    flu-rails (0.3.1)
       activesupport (>= 4.2.0)
       bunny (>= 2.5.0)
       rabbitmq_http_api_client (>= 1.6.0)
 
 GIT
   remote: https://github.com/crepesourcing/happn-ruby.git
-  revision: 4cf87b39694d00735e9433a55efcbb99c2281902
+  revision: 8e8867352181faf9ab681797fe2d91e2edb092d1
   specs:
     happn (0.1.1)
       activesupport (>= 4.2.0)
@@ -19,62 +19,60 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (5.2.0)
-      activesupport (= 5.2.0)
-    activerecord (5.2.0)
-      activemodel (= 5.2.0)
-      activesupport (= 5.2.0)
-      arel (>= 9.0)
-    activesupport (5.2.0)
+    activemodel (6.0.0)
+      activesupport (= 6.0.0)
+    activerecord (6.0.0)
+      activemodel (= 6.0.0)
+      activesupport (= 6.0.0)
+    activesupport (6.0.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+      zeitwerk (~> 2.1, >= 2.1.8)
     amq-protocol (2.3.0)
-    annotate (2.7.4)
-      activerecord (>= 3.2, < 6.0)
+    annotate (3.0.2)
+      activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 13.0)
-    arel (9.0.0)
     awesome_print (1.8.0)
-    bunny (2.11.0)
-      amq-protocol (~> 2.3.0)
-    concurrent-ruby (1.0.5)
-    effin_utf8 (1.0)
-    faraday (0.13.1)
+    bunny (2.14.3)
+      amq-protocol (~> 2.3, >= 2.3.0)
+    concurrent-ruby (1.1.5)
+    faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.12.2)
+    faraday_middleware (0.13.1)
       faraday (>= 0.7.4, < 1.0)
-    hashie (3.5.7)
-    i18n (1.0.1)
+    hashie (3.6.0)
+    i18n (1.7.0)
       concurrent-ruby (~> 1.0)
-    minitest (5.11.3)
+    minitest (5.12.2)
     multi_json (1.13.1)
-    multipart-post (2.0.0)
-    pg (1.0.0)
-    rabbitmq_http_api_client (1.9.1)
-      effin_utf8 (~> 1.0.0)
-      faraday (~> 0.13.0)
-      faraday_middleware (~> 0.12.0)
-      hashie (~> 3.5)
-      multi_json (~> 1.12)
-    rake (12.3.1)
-    sentry-raven (2.7.4)
+    multipart-post (2.1.1)
+    pg (1.1.4)
+    rabbitmq_http_api_client (1.12.0)
+      faraday (~> 0.15.4)
+      faraday_middleware (~> 0.13.0)
+      hashie (~> 3.6)
+      multi_json (~> 1.13.1)
+    rake (12.3.3)
+    sentry-raven (2.12.0)
       faraday (>= 0.7.6, < 1.0)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    zeitwerk (2.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (= 5.2.0)
+  activerecord (= 6.0.0)
   annotate
   awesome_print (= 1.8.0)
   flu-rails!
   happn!
-  pg (= 1.0.0)
+  pg (= 1.1.4)
   sentry-raven
 
 BUNDLED WITH
-   1.14.6
+   1.17.3
