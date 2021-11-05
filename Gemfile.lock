@@ -1,17 +1,17 @@
 GIT
   remote: https://github.com/crepesourcing/flu-rails.git
-  revision: 4d18d39d0763077e33ba3f44363edd81adb507b0
+  revision: 66bba7845b7a73d0e431e3f8cf05075acc4bbe97
   specs:
-    flu-rails (0.4.2)
+    flu-rails (1.0.0)
       activesupport (>= 6.0.0)
       bunny (~> 2.19, >= 2.19.0)
       rabbitmq_http_api_client (~> 2.0, >= 2.0.0)
 
 GIT
   remote: https://github.com/crepesourcing/happn-ruby.git
-  revision: b9ad18dd75e21afa29cbb92bb14939f3702f9d93
+  revision: 121b60ba4359dc624fba2a7adbb87b49cda39300
   specs:
-    happn (0.1.3)
+    happn (1.0.1)
       activesupport (>= 6.0.0)
       bunny (>= 2.19.0)
       rabbitmq_http_api_client (>= 2.0.0)
@@ -19,6 +19,19 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    actionpack (6.1.4.1)
+      actionview (= 6.1.4.1)
+      activesupport (= 6.1.4.1)
+      rack (~> 2.0, >= 2.0.9)
+      rack-test (>= 0.6.3)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.0, >= 1.2.0)
+    actionview (6.1.4.1)
+      activesupport (= 6.1.4.1)
+      builder (~> 3.1)
+      erubi (~> 1.4)
+      rails-dom-testing (~> 2.0)
+      rails-html-sanitizer (~> 1.1, >= 1.2.0)
     activemodel (6.1.4.1)
       activesupport (= 6.1.4.1)
     activerecord (6.1.4.1)
@@ -36,10 +49,13 @@ GEM
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
+    builder (3.2.4)
     bunny (2.19.0)
       amq-protocol (~> 2.3, >= 2.3.1)
       sorted_set (~> 1, >= 1.0.2)
     concurrent-ruby (1.1.9)
+    crass (1.0.6)
+    erubi (1.10.0)
     faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
@@ -59,14 +75,22 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-    faraday_middleware (1.1.0)
+    faraday_middleware (1.2.0)
       faraday (~> 1.0)
     hashie (4.1.0)
-    i18n (1.8.10)
+    i18n (1.8.11)
       concurrent-ruby (~> 1.0)
+    loofah (2.12.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.5.9)
+    method_source (1.0.0)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     multi_json (1.15.0)
     multipart-post (2.1.1)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     pg (1.2.3)
     public_suffix (4.0.6)
     rabbitmq_http_api_client (2.0.0)
@@ -75,9 +99,27 @@ GEM
       faraday_middleware (~> 1.0)
       hashie (~> 4.1)
       multi_json (~> 1.15)
+    racc (1.6.0)
+    rack (2.2.3)
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
+    rails-dom-testing (2.0.3)
+      activesupport (>= 4.2.0)
+      nokogiri (>= 1.6)
+    rails-html-sanitizer (1.4.2)
+      loofah (~> 2.3)
+    railties (6.1.4.1)
+      actionpack (= 6.1.4.1)
+      activesupport (= 6.1.4.1)
+      method_source
+      rake (>= 0.13)
+      thor (~> 1.0)
     rake (13.0.6)
     rbtree (0.4.4)
     ruby2_keywords (0.0.5)
+    sentry-rails (4.7.3)
+      railties (>= 5.0)
+      sentry-ruby-core (~> 4.7.0)
     sentry-ruby (4.7.3)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       faraday (>= 1.0)
@@ -85,13 +127,14 @@ GEM
     sentry-ruby-core (4.7.3)
       concurrent-ruby
       faraday
-    set (1.0.1)
+    set (1.0.2)
     sorted_set (1.0.3)
       rbtree
       set (~> 1.0)
+    thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    zeitwerk (2.4.2)
+    zeitwerk (2.5.1)
 
 PLATFORMS
   ruby
@@ -102,6 +145,7 @@ DEPENDENCIES
   flu-rails!
   happn!
   pg (= 1.2.3)
+  sentry-rails (= 4.7.3)
   sentry-ruby (= 4.7.3)
 
 BUNDLED WITH

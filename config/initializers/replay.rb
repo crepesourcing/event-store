@@ -18,6 +18,7 @@ Flu.configure do |config|
   config.development_environments   = []
   config.rabbitmq_host              = ENV["RABBITMQ_HOST"]
   config.rabbitmq_port              = ENV["RABBITMQ_PORT"]
+  config.rabbitmq_management_port   = ENV["RABBITMQ_MANAGEMENT_SCHEME"] || "http"
   config.rabbitmq_management_port   = ENV["RABBITMQ_MANAGEMENT_PORT"]
   config.rabbitmq_user              = ENV["RABBITMQ_USER"]
   config.rabbitmq_password          = ENV["RABBITMQ_PASSWORD"]
@@ -25,4 +26,5 @@ Flu.configure do |config|
   config.rabbitmq_exchange_durable  = ENV["RABBITMQ_EXCHANGE_DURABLE"] == "true"
   config.auto_connect_to_exchange   = false
   config.logger                     = logger
+  config.bunny_options              = ENV["RABBITMQ_VERIFY_PEER"] == "false" ? { verify_peer: false } : {}
 end
