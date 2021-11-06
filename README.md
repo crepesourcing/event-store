@@ -17,7 +17,7 @@ A single projector is defined following [Happn-ruby](https://github.com/crepesou
 | `POSTGRES_DATABASE_PASSWORD` | `""`| String | Optional | | `"12345"`|
 | `POSTGRES_DATABASE_NAME` | `"event-store"`| String | Optional | | `"freezed-events"` | 
 | `RABBITMQ_HOST` | `"localhost"` | String | Required | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby)  | `"192.168.42.42"` |
-| `RABBITMQ_PORT` | `"5672"` | String | Required | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby)  | `"1234"` |
+| `RABBITMQ_PORT` | `5672` | Integer | Required | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby)  | `1234` |
 | `RABBITMQ_USER` | `""` | String | Required | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby)  | `"root"` |
 | `RABBITMQ_PASSWORD` | `""` | String | Required | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby)  | `"pouet"` |
 | `RABBITMQ_QUEUE_NAME` | `"events"` | String | Required | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby)  | `"myproject"` |
@@ -29,7 +29,6 @@ A single projector is defined following [Happn-ruby](https://github.com/crepesou
 | `SENTRY_DSN` | `""` | String | Optional | If this variable is set, all error logs are sent to your [sentry.io](https://sentry.io) project. | `` |
 | `REPLAY_TRESHOLD` | `200000` | Integer | Optional | When replaying events, a queue is frequently checked to not have more messages than `REPLAY_TRESHOLD`. If you want to disable this threshold feature, set this value to `0`. | `1000000` |
 | `REPLAY_TRESHOLD_QUEUE_NAME` | `""` | String | Optional | When replaying events, a queue name must be specified to frequently check that a maximum number of messages does not overload the queue. The replaying service will wait for this queue to do not overload.  | ` ` |
-| `RABBITMQ_VERIFY_PEER` | `true` | boolean | Optional | When connecting to an SSL, checks the peer or not. | `false` |
 
 ## How to run this container
 

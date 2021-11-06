@@ -1,17 +1,17 @@
 GIT
   remote: https://github.com/crepesourcing/flu-rails.git
-  revision: 66bba7845b7a73d0e431e3f8cf05075acc4bbe97
+  revision: ffd1087a52321fdf1ee3d4e2747b49a96b6bdbf6
   specs:
-    flu-rails (1.0.0)
+    flu-rails (1.0.2)
       activesupport (>= 6.0.0)
       bunny (~> 2.19, >= 2.19.0)
       rabbitmq_http_api_client (~> 2.0, >= 2.0.0)
 
 GIT
   remote: https://github.com/crepesourcing/happn-ruby.git
-  revision: 121b60ba4359dc624fba2a7adbb87b49cda39300
+  revision: a221caaa48c675dc93e486d10d87dbd4d2ead018
   specs:
-    happn (1.0.1)
+    happn (1.0.2)
       activesupport (>= 6.0.0)
       bunny (>= 2.19.0)
       rabbitmq_http_api_client (>= 2.0.0)
