@@ -11,7 +11,7 @@ A single projector is defined following [Happn-ruby](https://github.com/crepesou
 
 | Option | Default Value | Type | Required? | Description  | Example |
 | ---- | ----- | ------ | ----- | ------ | ----- |
-| `POSTGRES_DATABASE_docker push babili/engine:latestHOST` | `"localhost"`| String | Required | | `"192.168.42.42"` |
+| `POSTGRES_DATABASE_HOST` | `"localhost"`| String | Required | | `"192.168.42.42"` |
 | `POSTGRES_DATABASE_PORT` | `5432`| Integer | Optional | | `4242` |
 | `POSTGRES_DATABASE_USER` | `"postgres"`| String | Optional | | `"root"`|
 | `POSTGRES_DATABASE_PASSWORD` | `""`| String | Optional | | `"12345"`|

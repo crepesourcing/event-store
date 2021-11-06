@@ -18,7 +18,7 @@ Flu.configure do |config|
   config.development_environments   = []
   config.rabbitmq_host              = ENV["RABBITMQ_HOST"]
   config.rabbitmq_port              = ENV["RABBITMQ_PORT"]&.to_i
-  config.rabbitmq_management_port   = ENV["RABBITMQ_MANAGEMENT_SCHEME"] || "http"
+  config.rabbitmq_management_scheme = ENV["RABBITMQ_MANAGEMENT_SCHEME"] || "http"
   config.rabbitmq_management_port   = ENV["RABBITMQ_MANAGEMENT_PORT"]&.to_i
   config.rabbitmq_user              = ENV["RABBITMQ_USER"]
   config.rabbitmq_password          = ENV["RABBITMQ_PASSWORD"]
