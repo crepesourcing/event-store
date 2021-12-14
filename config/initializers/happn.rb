@@ -1,3 +1,5 @@
+require_relative "../../lib/event_store_logger"
+
 def custom_projectors
   class_names = ENV["CUSTOM_PROJECTORS"] || ""
   class_names.split(",")
@@ -6,7 +8,7 @@ def custom_projectors
 end
 
 Happn.configure do |config|
-  logger                            = Logger.new(STDOUT)
+  logger                            = EventStoreLogger.logger
   logger.level                      = Logger::INFO
   config.logger                     = logger
   config.rabbitmq_host              = ENV["RABBITMQ_HOST"]

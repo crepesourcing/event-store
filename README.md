@@ -29,6 +29,8 @@ A single projector is defined following [Happn-ruby](https://github.com/crepesou
 | `SENTRY_DSN` | `""` | String | Optional | If this variable is set, all error logs are sent to your [sentry.io](https://sentry.io) project. | `` |
 | `REPLAY_TRESHOLD` | `200000` | Integer | Optional | When replaying events, a queue is frequently checked to not have more messages than `REPLAY_TRESHOLD`. If you want to disable this threshold feature, set this value to `0`. | `1000000` |
 | `REPLAY_TRESHOLD_QUEUE_NAME` | `""` | String | Optional | When replaying events, a queue name must be specified to frequently check that a maximum number of messages does not overload the queue. The replaying service will wait for this queue to do not overload.  | ` ` |
+| `LOGGER_ENVIRONMENT_NAME` | `"development"`| String | Required | | `"production"` |
+| `LOGGER_APPLICATION_NAME` | `"event-store"`| String | Optional | | `"event-consumer"` |
 
 ## How to run this container
 

@@ -1,4 +1,5 @@
 require "flu-rails"
+require_relative "../../lib/event_store_logger"
 
 module Flu
   class Event
@@ -13,7 +14,7 @@ module Flu
 end
 
 Flu.configure do |config|
-  logger                            = Logger.new(STDOUT)
+  logger                            = EventStoreLogger.logger
   logger.level                      = Logger::INFO
   config.development_environments   = []
   config.rabbitmq_host              = ENV["RABBITMQ_HOST"]
