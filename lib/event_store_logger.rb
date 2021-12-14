@@ -5,7 +5,7 @@ module EventStoreLogger
   class LogFormatter < Logger::Formatter
     def call(severity, time, progname, msg)
       formatted_time    = time&.utc&.iso8601
-      level             = severity
+      level             = severity&.upcase&.ljust(5, " ")
       application_name  = LogFormatter.application_name
       environment       = LogFormatter.environment_name
       thread_id         = Thread.current&.object_id
