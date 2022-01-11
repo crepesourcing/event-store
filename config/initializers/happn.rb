@@ -8,9 +8,7 @@ def custom_projectors
 end
 
 Happn.configure do |config|
-  logger                            = EventStoreLogger.logger
-  logger.level                      = Logger::INFO
-  config.logger                     = logger
+  config.logger                     = EventStoreLogger.logger
   config.rabbitmq_host              = ENV["RABBITMQ_HOST"]
   config.rabbitmq_port              = ENV["RABBITMQ_PORT"]&.to_i
   config.rabbitmq_management_scheme = ENV["RABBITMQ_MANAGEMENT_SCHEME"]

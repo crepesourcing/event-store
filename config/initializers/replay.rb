@@ -14,8 +14,6 @@ module Flu
 end
 
 Flu.configure do |config|
-  logger                            = EventStoreLogger.logger
-  logger.level                      = Logger::INFO
   config.development_environments   = []
   config.rabbitmq_host              = ENV["RABBITMQ_HOST"]
   config.rabbitmq_port              = ENV["RABBITMQ_PORT"]&.to_i
@@ -26,5 +24,5 @@ Flu.configure do |config|
   config.rabbitmq_exchange_name     = ENV["RABBITMQ_EXCHANGE_NAME"]
   config.rabbitmq_exchange_durable  = ENV["RABBITMQ_EXCHANGE_DURABLE"] == "true"
   config.auto_connect_to_exchange   = false
-  config.logger                     = logger
+  config.logger                     = EventStoreLogger.logger
 end

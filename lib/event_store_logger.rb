@@ -29,6 +29,7 @@ module EventStoreLogger
   def self.create_logger
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = LogFormatter.new
+    logger.level     = ENV["LOGGER_LEVEL"] || Logger::INFO
     logger
   end
 end
