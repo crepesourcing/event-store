@@ -36,18 +36,19 @@ class EventRepository
   end
 
   def constraint_to_condition(constraint)
+    connection = ActiveRecord::Base.connection
     if constraint.empty?
       "false"
     elsif constraint.size == 1
-      "#{constraint.keys[0]}='#{constraint.values[0]}'"
+      "#{connection.quote_column_name(constraint.keys[0])}=#{connection.quote(constraint.values[0])}"
     else
-      columns = constraint.keys.join(",")
-      values  = constraint.values.map {| value| "'#{value}'"}.join(",")
+      columns = constraint.keys.map { | key | connection.quote_column_name(key) }.join(",")
+      values  = constraint.values.map { | value | connection.quote(value) }.join(",")
       "(#{columns})=(#{values})"
     end
   end
 
   def create_query(constraints, first_event_id)
-    "SELECT id FROM events WHERE id >= #{first_event_id} AND (#{constraints_to_clause(constraints)}) ORDER BY id ASC"
+    "SELECT id FROM events WHERE id >= #{Integer(first_event_id)} AND (#{constraints_to_clause(constraints)}) ORDER BY id ASC"
   end
 end

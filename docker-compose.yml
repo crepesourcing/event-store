@@ -58,7 +58,8 @@ services:
       RABBITMQ_QUEUE_NAME: events
       RABBITMQ_EXCHANGE_NAME: events
       RABBITMQ_EXCHANGE_DURABLE: 'true'
-      
+
+      RAILS_ENV: development
       LOGGER_ENVIRONMENT_NAME: development
       LOGGER_APPLICATION_NAME: event-store
       LOGGER_LEVEL: DEBUG

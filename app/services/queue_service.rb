@@ -11,6 +11,8 @@ class QueueService
   end
 
   def wait_until_queue_is_not_overwhelmed
+    return if QUEUE_TRESHOLD.zero?
+
     threshold_overwhelmed = true
     while threshold_overwhelmed do
       queue                 = @queue_repository.find_queue(@queue_name_for_threshold)

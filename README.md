@@ -26,7 +26,8 @@ A single projector is defined following [Happn-ruby](https://github.com/crepesou
 | `RABBITMQ_MANAGEMENT_PORT` | `"15672"` | String | Required | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby)  | `"4242"` |
 | `RABBITMQ_EXCHANGE_DURABLE` | `true` | Boolean | Optional | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby)  | `false` |
 | `RABBITMQ_QUEUE_NAME` | `"happn-queue"` | String | Required | See [Happn's documentation](https://github.com/crepesourcing/happn-ruby) | `"my-queue"` |
-| `SENTRY_DSN` | `""` | String | Optional | If this variable is set, all error logs are sent to your [sentry.io](https://sentry.io) project. | `` |
+| `RAILS_ENV` | `"production"`| String | Optional | Defaults to `"production"` in the published Docker image. Sentry (see `SENTRY_DSN` below) only reports errors when this is **not** `"development"` or `"test"`. | `"development"` |
+| `SENTRY_DSN` | `""` | String | Optional | If this variable is set (and `RAILS_ENV` is not `"development"`/`"test"`), all error logs are sent to your [sentry.io](https://sentry.io) project. | `` |
 | `REPLAY_TRESHOLD` | `200000` | Integer | Optional | When replaying events, a queue is frequently checked to not have more messages than `REPLAY_TRESHOLD`. If you want to disable this threshold feature, set this value to `0`. | `1000000` |
 | `REPLAY_TRESHOLD_QUEUE_NAME` | `""` | String | Optional | When replaying events, a queue name must be specified to frequently check that a maximum number of messages does not overload the queue. The replaying service will wait for this queue to do not overload.  | ` ` |
 | `LOGGER_LEVEL` | `"INFO"`| String | Required | | `"WARN"` (possible values are `DEBUG < INFO < WARN < ERROR < FATAL < UNKNOWN`) |
