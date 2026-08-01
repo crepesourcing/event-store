@@ -102,12 +102,23 @@ COPY your-cleaninng-strategy.rb /usr/src/app/app/services/event_cleaning_strateg
 
 To add and register your own implementations `Happn::Projector`, add all their ruby files to the folder `app/projectors/` and add their class name to environment variable `CUSTOM_PROJECTORS` (separated by a comma).
 
-## Build a new version
+## Local Development
 
-```
-$ docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD} -e ${DOCKERHUB_EMAIL}
-$ docker build -t crepesourcing/event-store:latest .
-$ docker push crepesourcing/event-store:latest
+You can easily run the entire stack (PostgreSQL, RabbitMQ, and the Event Store app) locally using Docker Compose:
+
+```bash
+$ docker compose up -d --build
 ```
 
-(but this project is automatically built on DockerHub anyway: https://hub.docker.com/r/crepesourcing/event-store)
+The provided `docker-compose.yml` automatically sets up the databases and wires them to the app. You can follow the logs in real-time by running `docker compose logs -f app`.
+
+## Build and publish a new version
+
+This project uses **GitHub Actions** for CI/CD. 
+Whenever you push a commit to the `main` branch, an automated workflow (`.github/workflows/docker-publish.yml`) will securely build the Docker image, generate SLSA provenance attestations, and push it to Docker Hub with two tags:
+- `sha-<short_commit_hash>` (e.g. `sha-a1b2c3d`)
+- `latest`
+
+To enable this, ensure you have configured the following Secrets in your GitHub repository settings:
+- `DOCKERHUB_USERNAME`: Your Docker Hub username.
+- `DOCKERHUB_TOKEN`: A Personal Access Token generated from Docker Hub security settings.
