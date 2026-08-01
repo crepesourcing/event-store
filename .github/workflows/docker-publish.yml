@@ -32,7 +32,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/event-store
+          images: crepesourcing/event-store
           tags: |
             type=sha,format=short
             type=raw,value=latest,enable={{is_default_branch}}
@@ -44,8 +44,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/event-store:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKERHUB_USERNAME }}/event-store:buildcache,mode=max
+          cache-from: type=registry,ref=crepesourcing/event-store:buildcache
+          cache-to: type=registry,ref=crepesourcing/event-store:buildcache,mode=max
           
           # Generate SLSA Provenance and SBOM
           provenance: mode=max
