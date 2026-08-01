@@ -1,4 +1,4 @@
-FROM ruby:2.7.4-slim
+FROM ruby:3.4.9-slim-trixie
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev git && apt-get clean
 

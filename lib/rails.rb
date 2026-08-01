@@ -9,11 +9,12 @@ class Rails
   end
 
   def self.env
-    ENV["RAILS_ENV"] || "development"
+    require "active_support/string_inquirer"
+    ActiveSupport::StringInquirer.new(ENV["RAILS_ENV"] || "development")
   end
 
   def self.version
-    "5"
+    "8"
   end
 
   class Railtie

@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: event-store
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d event-store"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - "5672:5672"   # AMQP protocol port
+      - "15672:15672" # Management UI port
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "check_port_connectivity"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: .
+    restart: on-failure
+    command: rake events:consume
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      POSTGRES_DATABASE_HOST: postgres
+      POSTGRES_DATABASE_PORT: 5432
+      POSTGRES_DATABASE_USER: postgres
+      POSTGRES_DATABASE_PASSWORD: password
+      POSTGRES_DATABASE_NAME: event-store
+      
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: user
+      RABBITMQ_PASSWORD: password
+      RABBITMQ_MANAGEMENT_SCHEME: http
+      RABBITMQ_MANAGEMENT_PORT: 15672
+      RABBITMQ_QUEUE_NAME: events
+      RABBITMQ_EXCHANGE_NAME: events
+      RABBITMQ_EXCHANGE_DURABLE: 'true'
+      
+      LOGGER_ENVIRONMENT_NAME: development
+      LOGGER_APPLICATION_NAME: event-store
+      LOGGER_LEVEL: DEBUG
+
+volumes:
+  postgres_data:
+  rabbitmq_data:
