@@ -1,18 +1,31 @@
-FROM ruby:3.4.9-slim-trixie
+FROM ruby:3.4.9-slim-trixie AS builder
 
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev git && apt-get clean
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends build-essential libpq-dev git && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /usr/src/app/
 WORKDIR /usr/src/app/
 
-COPY Gemfile /usr/src/app/Gemfile
-COPY Gemfile.lock /usr/src/app/Gemfile.lock
-RUN bundle install
+COPY Gemfile Gemfile.lock ./
 
-COPY app /usr/src/app/app
-COPY config /usr/src/app/config
-COPY db /usr/src/app/db
-COPY lib /usr/src/app/lib
-COPY Rakefile /usr/src/app/Rakefile
+RUN bundle config set --local without 'development test' && \
+    bundle install && \
+    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git
+
+FROM ruby:3.4.9-slim-trixie
+
+RUN apt-get update -qq && \
+    apt-get install -y --no-install-recommends libpq5 && \
+    rm -rf /var/lib/apt/lists/*
+
+WORKDIR /usr/src/app/
+
+COPY --from=builder /usr/local/bundle /usr/local/bundle
+
+COPY app ./app
+COPY config ./config
+COPY db ./db
+COPY lib ./lib
+COPY Rakefile ./
 
 CMD ["rake"]
