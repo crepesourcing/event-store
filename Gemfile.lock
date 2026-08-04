@@ -63,14 +63,14 @@ GEM
       faraday (>= 1, < 3)
     faraday-net_http (3.4.4)
       net-http (~> 0.5)
-    flu-rails (8.0.3)
+    flu-rails (8.0.5)
       actionpack (~> 8.0)
       activerecord (~> 8.0)
       activesupport (~> 8.0)
       bunny (~> 3.1)
       logger (~> 1.7)
       rabbitmq_http_api_client (~> 3.2)
-    happn (1.1.7)
+    happn (1.1.8)
       bunny (>= 2.19.0)
       rabbitmq_http_api_client (>= 2.0.0)
     hashie (5.1.0)
@@ -154,7 +154,7 @@ GEM
       tsort (>= 0.2)
       zeitwerk (~> 2.6)
     rake (13.4.2)
-    rbs (4.1.1)
+    rbs (4.1.2)
       logger
       prism (>= 1.6.0)
       tsort
@@ -183,7 +183,7 @@ GEM
       concurrent-ruby (~> 1.0)
     uri (1.1.1)
     useragent (0.16.11)
-    zeitwerk (2.8.2)
+    zeitwerk (2.8.3)
 
 PLATFORMS
   aarch64-linux
@@ -200,8 +200,8 @@ PLATFORMS
 DEPENDENCIES
   activerecord (= 8.1.3.1)
   annotate
-  flu-rails (= 8.0.3)
-  happn (= 1.1.7)
+  flu-rails (= 8.0.5)
+  happn (= 1.1.8)
   pg (= 1.6.3)
   sentry-rails (= 6.6.2)
   sentry-ruby (= 6.6.2)
@@ -228,8 +228,8 @@ CHECKSUMS
   faraday (2.14.3) sha256=1882247e6766615c8220b4392bf1d27f6ebb63d8e28267587cef1fb0bf37f278
   faraday-follow_redirects (0.5.0) sha256=5cde93c894b30943a5d2b93c2fe9284216a6b756f7af406a1e55f211d97d10ad
   faraday-net_http (3.4.4) sha256=0e78af151747ed1b00f33e25973b4bc220d7f16c00c39676817c8b12331eb588
-  flu-rails (8.0.3) sha256=2091b601c1fd6f17f05c2d003c7163fe950d37359af1e0d7a7732e3efddb597d
-  happn (1.1.7) sha256=46078eef6bae716c690fa9a07380415f85a225d638970e38444ac0b67752a2ad
+  flu-rails (8.0.5) sha256=8d24e18e971dc3c61319ea2ad18589b0ee534411bb54d532d7ad3f5e8e2dd00c
+  happn (1.1.8) sha256=6d5f5fe2919f4b453aa6d3c4346c84d647c08b88f5774529abaaac314b989aec
   hashie (5.1.0) sha256=c266471896f323c446ea8207f8ffac985d2718df0a0ba98651a3057096ca3870
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
@@ -269,7 +269,7 @@ CHECKSUMS
   rails-html-sanitizer (1.7.1) sha256=e797a7c9b01e567307e317c576b49ab4168017e63eea4dba9ce3cb587e2f22c2
   railties (8.1.3.1) sha256=2388a232579a00cefea4487de66c8553c3408c1300abdc6cf1799d86ffb04487
   rake (13.4.2) sha256=cb825b2bd5f1f8e91ca37bddb4b9aaf345551b4731da62949be002fa89283701
-  rbs (4.1.1) sha256=1bf118f2f95d1cd3956357645d495152b661e0257e57781d18ceecd461622b9e
+  rbs (4.1.2) sha256=050eb1d8b508f1233bed929c0f2c7052302f7adf295230d9cb314e9024078f48
   rbtree (0.4.7) sha256=1efabbcb3fd5f12249c9c8a610a765074868164eed0c50c9db2531c00ed161cb
   rdoc (8.0.0) sha256=03bf8c08a9639658855a0cfd77c0abca8325c227693f7f33f82957811348c469
   reline (0.6.3) sha256=1198b04973565b36ec0f11542ab3f5cfeeec34823f4e54cebde90968092b1835
@@ -283,7 +283,7 @@ CHECKSUMS
   tzinfo (2.0.6) sha256=8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b
   uri (1.1.1) sha256=379fa58d27ffb1387eaada68c749d1426738bd0f654d812fcc07e7568f5c57c6
   useragent (0.16.11) sha256=700e6413ad4bb954bb63547fa098dddf7b0ebe75b40cc6f93b8d54255b173844
-  zeitwerk (2.8.2) sha256=7212a61311083c604184b1ea2574b9aa05cd14f855a0841c06985cabe9181d12
+  zeitwerk (2.8.3) sha256=2c85125a8467ce069e20123d1e709a08955c9d29c118c25b46b7b7fafdbb92e5
 
 BUNDLED WITH
    2.6.9
